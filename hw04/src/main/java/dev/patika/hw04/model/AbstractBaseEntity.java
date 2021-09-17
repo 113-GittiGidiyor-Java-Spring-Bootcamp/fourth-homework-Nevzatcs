@@ -16,7 +16,7 @@ import java.time.Instant;
 public abstract class AbstractBaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private long id;
 
     @CreatedDate
     @Column(name = "created_date", nullable = false)
@@ -29,5 +29,5 @@ public abstract class AbstractBaseEntity {
     private Instant lastModifiedDate = Instant.now();
 
 
-    public abstract Course mapFromCourseDTOtoCourse(CourseDTO courseDTO);
+
 }

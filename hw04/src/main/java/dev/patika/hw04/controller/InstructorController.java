@@ -1,6 +1,7 @@
 package dev.patika.hw04.controller;
 
 
+import dev.patika.hw04.dto.InstructorDTO;
 import dev.patika.hw04.model.Course;
 import dev.patika.hw04.model.Instructor;
 import dev.patika.hw04.service.InstructorService;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -27,15 +29,21 @@ public class InstructorController {
         return new ResponseEntity<>(instructorService.findAll(), HttpStatus.OK);
     }
 
-    @PostMapping("/instructors")
-    public Instructor saveInstructors(@RequestBody Instructor instructor){
-        return instructorService.save(instructor);
+    @PostMapping("/instructors/save-instructor")
+    public ResponseEntity<Instructor> saveInstructor(@RequestBody InstructorDTO instructorDTO) {
+
+        Optional<Instructor> resultOptional = instructorService.saveInstructor(instructorDTO);
+        if (resultOptional.isPresent()) {
+            return new ResponseEntity<>(resultOptional.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @DeleteMapping(value = "/instructors/{id}")
     public void deleteInstructorById(@PathVariable int id){
         instructorService.deleteById(id);
     }
+
     @GetMapping("/instructors/{id}")
     public Instructor findInstructorById(@PathVariable int id){
         return  instructorService.findById(id);
@@ -45,7 +53,7 @@ public class InstructorController {
     public Instructor updateCourse(@RequestBody Instructor instructor){
         return   instructorService.updateOnDatabase(instructor);
     }
-
+    /*
     @GetMapping("/instructors/findByName/{name}")
     public List<Instructor> getInstructorsWithName(@PathVariable String name){
         return instructorService.getInstructorsWithName(name);
@@ -56,5 +64,7 @@ public class InstructorController {
         return instructorService.getInstructorsWithId(id);
     }
 
+
+     */
 
 }

@@ -1,21 +1,25 @@
 package dev.patika.hw04.service;
 
 
-import dev.patika.hw04.model.Instructor;
+import dev.patika.hw04.dto.StudentDTO;
+import dev.patika.hw04.mappers.StudentMapper;
 import dev.patika.hw04.model.Student;
 import dev.patika.hw04.repository.StudentRepository;
+import dev.patika.hw04.util.StudentValidatorUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class StudentService implements BaseService<Student> {
+public class StudentService {
 
     private final StudentRepository studentRepository;
+    private final StudentMapper studentMapper;
 /*
     @Autowired
     public StudentService(@Qualifier("studentDAOJPA") StudentDAO studentStudentDAO) {
@@ -24,7 +28,8 @@ public class StudentService implements BaseService<Student> {
 
 
  */
-    @Override
+    //@Override
+    @Transactional
     public List<Student> findAll() {
         List<Student> stuList = new ArrayList<>();
         Iterable<Student> studentIter = studentRepository.findAll();
@@ -32,25 +37,33 @@ public class StudentService implements BaseService<Student> {
         return stuList;
     }
 
-    @Override
+    //@Override
     @Transactional(readOnly = true)
-    public Student findById(int id) {
-        return (Student) studentRepository.findById(id).get();
+    public Student findById(long id) {
+        return  studentRepository.findById(id).get();
     }
 
-    @Override
+    //@Override
     @Transactional
-    public Student save(Student student) {
-        return (Student) studentRepository.save(student);
+    public Optional<Student> saveStudent(StudentDTO studentDTO) {
+        validateRequest(studentDTO);
+        Student student=studentMapper.mapFromStudentDTOtoStudent(studentDTO);
+
+        return Optional.of(studentRepository.save(student));
     }
 
-    @Override
+    private void validateRequest(StudentDTO studentDTO) {
+        StudentValidatorUtil.validateStudentAge(studentDTO.getS_birthDate());
+    }
+
+
+    //@Override
     @Transactional
-    public void deleteById(int id) {
+    public void deleteById(long id) {
         studentRepository.deleteById(id);
     }
 
-    @Override
+    //@Override
     public Student updateOnDatabase(Student student) {
         return (Student) studentRepository.save(student);
     }

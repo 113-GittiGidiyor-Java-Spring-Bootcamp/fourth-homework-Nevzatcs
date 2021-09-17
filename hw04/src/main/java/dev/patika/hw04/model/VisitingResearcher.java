@@ -11,9 +11,6 @@ import javax.persistence.Entity;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-
-@SuperBuilder
 
 public class VisitingResearcher extends Instructor{
 

@@ -11,10 +11,6 @@ import javax.persistence.Entity;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-
-@SuperBuilder
-
 
 public class PermanentInstructor extends Instructor{
     private double fixedSalary;

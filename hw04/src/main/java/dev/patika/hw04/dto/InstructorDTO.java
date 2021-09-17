@@ -1,5 +1,6 @@
 package dev.patika.hw04.dto;
 
+import dev.patika.hw04.model.AbstractBaseEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,20 +12,20 @@ import javax.validation.constraints.NotNull;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class InstructorDTO {
+public class InstructorDTO extends AbstractBaseEntity {
     @ApiModelProperty(hidden = true)
-    private int id;
+    private long id;
 
     @ApiModelProperty(example = "Koray Can")
     @NotBlank(message = "Name is mandatory")
     private String name;
 
-    @ApiModelProperty(example = "5")
+    @ApiModelProperty(example = "Istanbul")
     @NotBlank(message = "Address is mandatory")
     private String address;
 
-    @ApiModelProperty(example = "5")
-    @NotNull(message = "Phone number is mandatory")
+    @ApiModelProperty(example = "5364786524")
+    @NotBlank(message = "Phone number is mandatory")
     private String phoneNumber;
 
 }

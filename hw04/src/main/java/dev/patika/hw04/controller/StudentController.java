@@ -1,6 +1,7 @@
 package dev.patika.hw04.controller;
 
 
+import dev.patika.hw04.dto.StudentDTO;
 import dev.patika.hw04.model.Instructor;
 import dev.patika.hw04.model.Student;
 import dev.patika.hw04.service.StudentService;
@@ -10,12 +11,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
 public class StudentController {
 
-    StudentService studentService;
+    private final StudentService studentService;
 
     @Autowired
     public StudentController(StudentService studentService) {
@@ -27,9 +29,14 @@ public class StudentController {
         return new ResponseEntity<>(studentService.findAll(), HttpStatus.OK);
     }
 
-    @PostMapping("/students")
-    public Student saveStudent(@RequestBody Student student){
-        return studentService.save(student);
+    @PostMapping("/students/save-students")
+    public ResponseEntity<Student> saveStudent(@RequestBody StudentDTO studentDTO) {
+        Optional<Student> resultOptional = studentService.saveStudent(studentDTO);
+
+        if (resultOptional.isPresent()) {
+            return new ResponseEntity<>(resultOptional.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @DeleteMapping(value = "/students/{id}")

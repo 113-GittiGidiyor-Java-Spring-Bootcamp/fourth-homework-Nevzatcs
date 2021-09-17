@@ -15,11 +15,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Builder
+
 public class Student  extends AbstractBaseEntity{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+
     private String s_name;
     private LocalDate s_birthDate;
     private String s_address;

@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CourseRepository extends CrudRepository<Course,Integer> {
-    List<Course> findByCourseName(String s);
-    List<Course> findCourseById(int id);
+public interface CourseRepository extends CrudRepository<Course,Long> {
+    //List<Course> findByCourseName(String s);
+    //List<Course> findCourseById(long id);
 
     @Query("SELECT " +
             "  CASE " +
@@ -23,6 +23,6 @@ public interface CourseRepository extends CrudRepository<Course,Integer> {
             "       FALSE " +
             "   END " +
             "FROM Course c " +
-            "WHERE c.id = ?1")
+            "WHERE c.courseCode = ?1")
     boolean selectExistsCourse(int id);
 }

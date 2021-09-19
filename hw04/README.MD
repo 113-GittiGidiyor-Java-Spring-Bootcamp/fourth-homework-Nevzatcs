@@ -28,7 +28,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-UML GELECEK
+
 According to UML Diagram, within the Controller/Service/Repository logic a project created. CRUD operations such as save, update, delete added the project. CRUD operations implemented with Swagger UI. H2 database is used for database connection.
 
 ### Technologies

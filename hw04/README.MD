@@ -84,18 +84,24 @@ After run the project:
 You can use Swagger, as I show in images.
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 * Step 1
-![](../../../Desktop/swagger.jpg)
+![swagger](https://user-images.githubusercontent.com/80898514/133933611-6d755adf-0ba3-460a-82ed-6c5cdd60e88c.jpg)
+
 * Step 2
-![](../../../Desktop/try it out.jpg)
+![try it out](https://user-images.githubusercontent.com/80898514/133933617-4fd88ba3-8fda-4d1a-80fb-d7f56e4dbd94.jpg)
+
 * Step 3
-![](../../../Desktop/executee.jpg)
+![executee](https://user-images.githubusercontent.com/80898514/133933623-45926c7d-04f1-4197-9137-a4b7d6441314.jpg)
+
 
 ### H2 Database
 * After opening the URL, you will get this page. By clicking connect, you can see the tables and you can monitor the table and its informations.
-![](../../../Desktop/h2.jpg)
+![h2](https://user-images.githubusercontent.com/80898514/133933629-c25dd79d-eed5-4fe0-85f4-375b9d900bef.jpg)
+
 * Here is the s-examples of informations in database.
-![](../../../Desktop/transaction info.jpg)
-![](../../../Desktop/transaction info.jpg)
+![transaction info](https://user-images.githubusercontent.com/80898514/133933633-d1cbb69f-8c29-4a3b-925b-c1cea709454d.jpg)
+![exceptionlog_example](https://user-images.githubusercontent.com/80898514/133933641-dbcc6199-6c9f-4cbb-b5f0-fbf9ec798bb6.jpg)
+
+
 
 
 

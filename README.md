@@ -24,7 +24,7 @@
   </ol>
 </details>
 
-
+# School Management System
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project

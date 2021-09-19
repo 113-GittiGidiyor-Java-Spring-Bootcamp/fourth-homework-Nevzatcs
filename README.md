@@ -101,9 +101,10 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 ### H2 Database
 * After opening the URL, you will get this page. By clicking connect, you can see the tables and you can monitor the table and its informations.
+* 
   ![h2](https://user-images.githubusercontent.com/80898514/133933629-c25dd79d-eed5-4fe0-85f4-375b9d900bef.jpg)
 
-* Here is the s-examples of informations in database.
+* Here is the examples of informations in database.
   ![transaction info](https://user-images.githubusercontent.com/80898514/133933633-d1cbb69f-8c29-4a3b-925b-c1cea709454d.jpg)
   ![exceptionlog_example](https://user-images.githubusercontent.com/80898514/133933641-dbcc6199-6c9f-4cbb-b5f0-fbf9ec798bb6.jpg)
 

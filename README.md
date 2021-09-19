@@ -1,4 +1,5 @@
 
+# School Management System
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
@@ -24,7 +25,6 @@
   </ol>
 </details>
 
-# School Management System
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project

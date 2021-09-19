@@ -16,7 +16,7 @@ public class CourseDTO extends AbstractBaseEntity {
     @ApiModelProperty(hidden = true)
     private long id;
 
-    @ApiModelProperty(example = "Koray")
+    @ApiModelProperty(example = "MAth")
     @NotBlank(message = "First Name is mandatory")
     private String courseName;
 

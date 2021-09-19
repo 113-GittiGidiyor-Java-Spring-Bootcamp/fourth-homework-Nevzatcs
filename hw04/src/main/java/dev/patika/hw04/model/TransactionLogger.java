@@ -19,6 +19,7 @@ public class TransactionLogger {
     private Long id;
 
     private int courseCode;
+    private String phoneNumber;
     private long studentId;
     private LocalDateTime transactionDataTime;
     private String clientIpAddress;

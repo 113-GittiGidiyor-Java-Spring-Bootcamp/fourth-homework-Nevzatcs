@@ -24,10 +24,10 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler({StudentAgeNotValidException.class})
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<SchoolAppErrorResponse> handleException(StudentAgeNotValidException exc){
-        SchoolAppErrorResponse response = prepareErrorResponse(HttpStatus.NOT_FOUND, exc.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        SchoolAppErrorResponse response = prepareErrorResponse(HttpStatus.BAD_REQUEST, exc.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler({CourseIsAlreadyExistsException.class})

@@ -13,7 +13,6 @@ import dev.patika.hw04.repository.CourseRepository;
 import dev.patika.hw04.repository.ExceptionLoggerRepository;
 import dev.patika.hw04.repository.TransactionLoggerRepository;
 import dev.patika.hw04.util.ClientRequestInfo;
-import dev.patika.hw04.util.ErrorMessageConstants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,7 +68,7 @@ public class CourseService {
         Course course =courseMapper.mapFromCourseDTOtoCourse(courseDTO);
 
         this.saveTransactionToDatabase(course,courseDTO.getCourseCode(), TransactionType.ADD_COURSE);
-        this.saveExceptionTransactionToDatabase(course,courseDTO.getId(), 400, ErrorMessageConstants.DUPLICATE_COURSE ,ExceptionType.CourseIsAlreadyExistsException);
+        this.saveExceptionTransactionToDatabase(course,courseDTO.getId(), 400,(courseDTO.getCourseName() + " course with code : " + courseDTO.getCourseCode() + " is already exist")  ,ExceptionType.CourseIsAlreadyExistsException);
         return Optional.of(courseRepository.save(course));
       //  return  courseRepository.save(course);
     }
